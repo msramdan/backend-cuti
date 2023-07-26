@@ -17,10 +17,5 @@ Route::middleware(['auth', 'web'])->group(function () {
     Route::resource('roles', RoleAndPermissionController::class);
 });
 
-Route::middleware(['auth', 'permission:test view'])->get('/tests', function () {
-    dd('This is just a test and an example for permission and sidebar menu. You can remove this line on web.php, config/permission.php and config/generator.php');
-})->name('tests.index');
-
 Route::resource('departments', App\Http\Controllers\DepartmentController::class)->middleware('auth');
 Route::resource('positions', App\Http\Controllers\PositionController::class)->middleware('auth');
-Route::resource('employees', App\Http\Controllers\EmployeeController::class)->middleware('auth');
