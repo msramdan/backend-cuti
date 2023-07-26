@@ -10,10 +10,10 @@ class DepartmentController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('permission:department view')->only('index', 'show');
-        $this->middleware('permission:department create')->only('create', 'store');
-        $this->middleware('permission:department edit')->only('edit', 'update');
-        $this->middleware('permission:department delete')->only('destroy');
+        $this->middleware('permission:departemen view')->only('index', 'show');
+        $this->middleware('permission:departemen create')->only('create', 'store');
+        $this->middleware('permission:departemen edit')->only('edit', 'update');
+        $this->middleware('permission:departemen delete')->only('destroy');
     }
 
     /**
@@ -52,7 +52,7 @@ class DepartmentController extends Controller
      */
     public function store(StoreDepartmentRequest $request)
     {
-        
+
         Department::create($request->validated());
 
         return redirect()
@@ -91,7 +91,7 @@ class DepartmentController extends Controller
      */
     public function update(UpdateDepartmentRequest $request, Department $department)
     {
-        
+
         $department->update($request->validated());
 
         return redirect()

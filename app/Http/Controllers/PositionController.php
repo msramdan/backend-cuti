@@ -10,10 +10,10 @@ class PositionController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('permission:position view')->only('index', 'show');
-        $this->middleware('permission:position create')->only('create', 'store');
-        $this->middleware('permission:position edit')->only('edit', 'update');
-        $this->middleware('permission:position delete')->only('destroy');
+        $this->middleware('permission:jabatan view')->only('index', 'show');
+        $this->middleware('permission:jabatan create')->only('create', 'store');
+        $this->middleware('permission:jabatan edit')->only('edit', 'update');
+        $this->middleware('permission:jabatan delete')->only('destroy');
     }
 
     /**
@@ -52,7 +52,7 @@ class PositionController extends Controller
      */
     public function store(StorePositionRequest $request)
     {
-        
+
         Position::create($request->validated());
 
         return redirect()
@@ -91,7 +91,7 @@ class PositionController extends Controller
      */
     public function update(UpdatePositionRequest $request, Position $position)
     {
-        
+
         $position->update($request->validated());
 
         return redirect()

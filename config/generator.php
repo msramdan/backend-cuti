@@ -128,14 +128,14 @@ return [
         [
             'header' => 'Employees',
             'permissions' => [
-                'employee view'
+                'karyawan view'
             ],
             'menus' => [
                 [
                     'title' => 'Karyawan',
                     'icon' => '<i class="bi bi-people"></i>',
                     'route' => '/employees',
-                    'permission' => 'employee view',
+                    'permission' => 'karyawan view',
                     'permissions' => [],
                     'submenus' => []
                 ]
@@ -144,8 +144,8 @@ return [
         [
             'header' => 'Main',
             'permissions' => [
-                'department view',
-                'position view'
+                'departemen view',
+                'jabatan view'
             ],
             'menus' => [
                 [
@@ -154,19 +154,19 @@ return [
                     'route' => null,
                     'permission' => null,
                     'permissions' => [
-                        'department view',
-                        'position view'
+                        'departemen view',
+                        'jabatan view'
                     ],
                     'submenus' => [
                         [
                             'title' => 'Departemen',
                             'route' => '/departments',
-                            'permission' => 'department view'
+                            'permission' => 'departemen view'
                         ],
                         [
                             'title' => 'Jabatan',
                             'route' => '/positions',
-                            'permission' => 'position view'
+                            'permission' => 'jabatan view'
                         ]
                     ]
                 ]

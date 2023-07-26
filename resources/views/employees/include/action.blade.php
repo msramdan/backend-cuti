@@ -1,17 +1,17 @@
 <td>
-    @can('employee view')
+    @can('karyawan view')
     <a href="{{ route('employees.show', $model->id) }}" class="btn btn-outline-success btn-sm">
         <i class="fa fa-eye"></i>
     </a>
     @endcan
 
-    @can('employee edit')
+    @can('karyawan edit')
         <a href="{{ route('employees.edit', $model->id) }}" class="btn btn-outline-primary btn-sm">
             <i class="fa fa-pencil-alt"></i>
         </a>
     @endcan
 
-    @can('employee delete')
+    @can('karyawan delete')
         <form action="{{ route('employees.destroy', $model->id) }}" method="post" class="d-inline"
             onsubmit="return confirm('Are you sure to delete this record?')">
             @csrf

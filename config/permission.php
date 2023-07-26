@@ -181,9 +181,9 @@ return [
                 'role & permission delete',
             ]
         ],
-        ['group' => 'departments', 'access' => ['department view', 'department create', 'department edit', 'department delete']],
-        ['group' => 'positions', 'access' => ['position view', 'position create', 'position edit', 'position delete']],
-        ['group' => 'employees', 'access' => ['employee view', 'employee create', 'employee edit', 'employee delete']],
-        ['group' => 'pengajuans', 'access' => ['pengajuan view',]],
+        ['group' => 'departemen', 'access' => ['departemen view', 'departemen create', 'departemen edit', 'departemen delete']],
+        ['group' => 'jabatan', 'access' => ['jabatan view', 'jabatan create', 'jabatan edit', 'jabatan delete']],
+        ['group' => 'karyawan', 'access' => ['karyawan view', 'karyawan create', 'karyawan edit', 'karyawan delete']],
+        ['group' => 'pengajuan', 'access' => ['pengajuan view',]],
     ],
 ];

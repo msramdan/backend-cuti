@@ -19,7 +19,7 @@
         <section class="section">
             <x-alert></x-alert>
 
-                @can('department create')
+                @can('departemen create')
                 <div class="d-flex justify-content-end">
                     <a href="{{ route('departments.create') }}" class="btn btn-primary mb-3">
                         <i class="fas fa-plus"></i>
