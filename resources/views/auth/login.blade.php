@@ -10,10 +10,8 @@
     <div class="row h-100">
         <div class="col-lg-6 col-12">
             <div id="auth-left">
-
-                <h1 class="auth-title">{{ __('Log in.') }}</h1>
-                <p class="auth-subtitle mb-3">{{ __('Log in with your data that you entered during registration.') }}</p>
-
+                <img style="width:60%" src="{{ asset('mazer') }}/images/logo/logo.png" alt="Logo">
+                <p class="auth-subtitle mb-2">{{ __('Silahkan login untuk masuk kedalam aplikasi.') }}</p>
                 @if ($errors->any())
                     <div class="alert alert-danger alert-dismissible show fade">
                         <ul class="ms-0 mb-0">
@@ -53,24 +51,10 @@
                         </div>
                     </div>
 
-                    <div class="form-check form-check-lg d-flex align-items-end">
-                        <input class="form-check-input me-2" type="checkbox" value="" name="remember" id="remember"
-                            {{ old('remember') ? 'checked' : '' }}>
-                        <label class="form-check-label text-gray-600" for="remember">
-                            Keep me logged in
-                        </label>
-                    </div>
-
                     <button class="btn btn-primary btn-block btn-lg shadow-lg mt-3">{{ __('Log in') }}</button>
                 </form>
 
                 <div class="text-center mt-4 text-lg fs-4">
-                    {{-- <p class="text-gray-600">{{ __("Don't have an account") }}?
-                        <a href="/register" class="font-bold">
-                            {{ __('Sign up.') }}
-                        </a>
-                    </p> --}}
-
                     @if (Route::has('password.request'))
                         <p>
                             <a class="font-bold" href="{{ route('password.request') }}">

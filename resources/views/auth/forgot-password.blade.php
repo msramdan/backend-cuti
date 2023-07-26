@@ -10,14 +10,9 @@
     <div class="row h-100">
         <div class="col-lg-7 col-12">
             <div id="auth-left">
-                <div class="auth-logo" class="mb-0">
-                    <a href="/"><img src="{{ asset('mazer') }}/images/logo/logo.svg" alt="Logo"></a>
-                </div>
-
-                <h1 class="auth-title">{{ __('Forgot Password.') }}</h1>
-
+                <img style="width:60%" src="{{ asset('mazer') }}/images/logo/logo.png" alt="Logo">
                 <p class="auth-subtitle mb-3">
-                    {{ __('Enter your email and we\'ll send your a link to reset your password.') }}</p>
+                    {{ __('Masukkan email Anda dan kami akan mengirimkan tautan untuk mengatur ulang kata sandi Anda') }}</p>
 
                 @if ($errors->any())
                     <div class="alert alert-danger alert-dismissible show fade">
@@ -55,11 +50,6 @@
                 </form>
 
                 <div class="text-center mt-4 text-lg fs-4">
-                    <p class="text-gray-600">{{ __("Don't have an account") }}?
-                        <a href="/register" class="font-bold">
-                            {{ __('Sign up.') }}
-                        </a>
-                    </p>
 
                     <p class="text-gray-600">{{ __('Already have an account') }}?
                         <a href="/login" class="font-bold">{{ __('Log in.') }}</a>
