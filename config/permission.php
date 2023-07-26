@@ -187,5 +187,5 @@ return [
                 'test view',
             ]
         ],
-    ],
-];
+    ['group' => 'departments', 'access' => ['department view', 'department create', 'department edit', 'department delete']],['group' => 'positions', 'access' => ['position view', 'position create', 'position edit', 'position delete']],['group' => 'employees', 'access' => ['employee view', 'employee create', 'employee edit', 'employee delete']], 
+		],];

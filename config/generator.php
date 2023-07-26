@@ -109,54 +109,77 @@ return [
      * This code below always changes when you use a generator and maybe you must lint or format the code.
      */
     'sidebars' => [
-        [
-            'header' => 'Main',
-            'permissions' => [
-                'test view'
-            ],
-            'menus' => [
-                [
-                    'title' => 'Main Data',
-                    'icon' => '<i class="bi bi-collection-fill"></i>',
-                    'route' => null,
-                    'permission' => null,
-                    'permissions' => [
-                        'test view'
+    [
+        'header' => 'Main',
+        'permissions' => [
+            'department view',
+            'position view'
+        ],
+        'menus' => [
+            [
+                'title' => 'Main Data',
+                'icon' => '<i class="bi bi-collection-fill"></i>',
+                'route' => null,
+                'permission' => null,
+                'permissions' => [
+                    'department view',
+                    'position view'
+                ],
+                'submenus' => [
+                    [
+                        'title' => 'Departments',
+                        'route' => '/departments',
+                        'permission' => 'department view'
                     ],
-                    'submenus' => [
-                        [
-                            'title' => 'Tests',
-                            'route' => '/tests',
-                            'permission' => 'test view'
-                        ]
+                    [
+                        'title' => 'Positions',
+                        'route' => '/positions',
+                        'permission' => 'position view'
                     ]
                 ]
             ]
-        ],
-        [
-            'header' => 'Users',
-            'permissions' => [
-                'user view',
-                'role & permission view'
-            ],
-            'menus' => [
-                [
-                    'title' => 'Users',
-                    'icon' => '<i class="bi bi-people-fill"></i>',
-                    'route' => '/users',
-                    'permission' => 'user view',
-                    'permissions' => [],
-                    'submenus' => []
-                ],
-                [
-                    'title' => 'Roles & permissions',
-                    'icon' => '<i class="bi bi-person-check-fill"></i>',
-                    'route' => '/roles',
-                    'permission' => 'role & permission view',
-                    'permissions' => [],
-                    'submenus' => []
-                ],
-            ]
-        ],
+        ]
     ],
+    [
+        'header' => 'Users',
+        'permissions' => [
+            'user view',
+            'role & permission view'
+        ],
+        'menus' => [
+            [
+                'title' => 'Users',
+                'icon' => '<i class="bi bi-people-fill"></i>',
+                'route' => '/users',
+                'permission' => 'user view',
+                'permissions' => [],
+                'submenus' => []
+            ],
+            [
+                'title' => 'Roles & permissions',
+                'icon' => '<i class="bi bi-person-check-fill"></i>',
+                'route' => '/roles',
+                'permission' => 'role & permission view',
+                'permissions' => [],
+                'submenus' => []
+            ]
+        ]
+    ],
+    [
+        'header' => 'Employees',
+        'permissions' => [
+            'employee view'
+        ],
+        'menus' => [
+            [
+                'title' => 'Employees',
+                'icon' => '<i class="bi bi-people"></i>',
+                'route' => '/employees',
+                'permission' => 'employee view',
+                'permissions' => [],
+                'submenus' => []
+            ]
+        ]
+    ]
+]
 ];

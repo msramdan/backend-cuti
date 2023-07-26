@@ -4,7 +4,8 @@
             <div class="d-flex justify-content-between align-items-center">
                 <div class="logo">
                     <a href="/">
-                        <img src="{{ asset('mazer') }}/images/logo/logo.svg" alt="Logo">
+                        {{-- <img src="{{ asset('mazer') }}/images/logo/logo.svg" alt="Logo"> --}}
+                        E-Cuti
                     </a>
                 </div>
                 <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
@@ -53,8 +54,6 @@
                 @foreach (config('generator.sidebars') as $sidebar)
                     @if (isset($sidebar['permissions']))
                         @canany($sidebar['permissions'])
-                            <li class="sidebar-title">{{ $sidebar['header'] }}</li>
-
                             @foreach ($sidebar['menus'] as $menu)
                                 @php
                                     $permissions = empty($menu['permission']) ? $menu['permissions'] : [$menu['permission']];
@@ -64,7 +63,8 @@
                                     @if (empty($menu['submenus']))
                                         @can($menu['permission'])
                                             <li class="sidebar-item{{ is_active_menu($menu['route']) }}">
-                                                <a href="{{ route(str($menu['route'])->remove('/')->plural() . '.index') }}" class="sidebar-link">
+                                                <a href="{{ route(str($menu['route'])->remove('/')->plural() . '.index') }}"
+                                                    class="sidebar-link">
                                                     {!! $menu['icon'] !!}
                                                     <span>{{ __($menu['title']) }}</span>
                                                 </a>
@@ -80,8 +80,9 @@
                                                 @canany($menu['permissions'])
                                                     @foreach ($menu['submenus'] as $submenu)
                                                         @can($submenu['permission'])
-                                                            <li class="submenu-item{{  is_active_menu($submenu['route']) }}">
-                                                                <a href="{{ route(str($submenu['route'])->remove('/')->plural() . '.index') }}">
+                                                            <li class="submenu-item{{ is_active_menu($submenu['route']) }}">
+                                                                <a
+                                                                    href="{{ route(str($submenu['route'])->remove('/')->plural() . '.index') }}">
                                                                     {{ __($submenu['title']) }}
                                                                 </a>
                                                             </li>
@@ -98,8 +99,6 @@
                 @endforeach
 
                 @if (env('APP_ENV') === 'local')
-                    <li class="sidebar-title">{{ __('Generators') }}</li>
-
                     <li class="sidebar-item{{ request()->is('generators/create') ? ' active' : '' }}">
                         <a class="sidebar-link" href="{{ route('generators.create') }}">
                             <i class="bi bi-grid-fill"></i>
@@ -107,9 +106,6 @@
                         </a>
                     </li>
                 @endif
-
-                <li class="sidebar-title">Account</li>
-
                 <li class="sidebar-item{{ request()->is('profile') ? ' active' : '' }}">
                     <a class="sidebar-link" href="{{ route('profile') }}">
                         <i class="bi bi-person-badge-fill"></i>
