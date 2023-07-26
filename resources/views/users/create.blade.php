@@ -8,9 +8,6 @@
             <div class="row">
                 <div class="col-12 col-md-8 order-md-1 order-last">
                     <h3>{{ __('User') }}</h3>
-                    <p class="text-subtitle text-muted">
-                        {{ __('Create a new user.') }}
-                    </p>
                 </div>
 
                 <x-breadcrumb>

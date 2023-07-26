@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
-@section('title', __('Users'))
+@section('title', __('Karyawan'))
 
 @section('content')
     <div class="page-heading">
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-8 order-md-1 order-last">
-                    <h3>{{ __('User') }}</h3>
+                    <h3>{{ __('Karyawan') }}</h3>
                 </div>
                 <x-breadcrumb>
                     <li class="breadcrumb-item"><a href="/">{{ __('Dashboard') }}</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ __('User') }}</li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ __('Employees') }}</li>
                 </x-breadcrumb>
             </div>
         </div>
@@ -19,14 +19,14 @@
         <section class="section">
             <x-alert></x-alert>
 
-            @can('user create')
+                @can('employee create')
                 <div class="d-flex justify-content-end">
-                    <a href="{{ route('users.create') }}" class="btn btn-primary mb-3">
+                    <a href="{{ route('employees.create') }}" class="btn btn-primary mb-3">
                         <i class="fas fa-plus"></i>
-                        {{ __('Tambah user') }}
+                        {{ __('Tambah Departemen') }}
                     </a>
                 </div>
-            @endcan
+                @endcan
 
             <div class="row">
                 <div class="col-md-12">
@@ -36,11 +36,16 @@
                                 <table class="table table-striped" id="data-table" width="100%">
                                     <thead>
                                         <tr>
-                                            {{-- <th>No</th> --}}
-                                            <th>{{ __('Avatar') }}</th>
-                                            <th>{{ __('Name') }}</th>
-                                            <th>{{ __('Email') }}</th>
-                                            <th>{{ __('Role') }}</th>
+                                            <th>{{ __('Nik') }}</th>
+											<th>{{ __('Nama Karyawan') }}</th>
+											<th>{{ __('Tempat Lahir') }}</th>
+											<th>{{ __('Tanggal Lahir') }}</th>
+											<th>{{ __('Jenis Kelamin') }}</th>
+											<th>{{ __('No Hp') }}</th>
+											<th>{{ __('Alamat') }}</th>
+											<th>{{ __('Department') }}</th>
+											<th>{{ __('Position') }}</th>
+
                                             <th>{{ __('Created At') }}</th>
                                             <th>{{ __('Updated At') }}</th>
                                             <th>{{ __('Action') }}</th>
@@ -68,37 +73,45 @@
         $('#data-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('users.index') }}",
+            ajax: "{{ route('employees.index') }}",
             columns: [
-                // {
-                //     data: 'DT_RowIndex',
-                //     name: 'DT_RowIndex',
-                //     orderable: false,
-                //     searchable: false
-                // },
                 {
-                    data: 'avatar',
-                    name: 'avatar',
-                    orderable: false,
-                    searchable: false,
-                    render: function(data, type, full, meta) {
-                        return `<div class="avatar">
-                            <img src="${data}" alt="avatar">
-                        </div>`;
-                    }
+                    data: 'nik',
+                    name: 'nik',
                 },
-                {
-                    data: 'name',
-                    name: 'name'
+				{
+                    data: 'nama_karyawan',
+                    name: 'nama_karyawan',
                 },
-                {
-                    data: 'email',
-                    name: 'email'
+				{
+                    data: 'tempat_lahir',
+                    name: 'tempat_lahir',
                 },
-                {
-                    data: 'role',
-                    name: 'role'
+				{
+                    data: 'tanggal_lahir',
+                    name: 'tanggal_lahir',
                 },
+				{
+                    data: 'jenis_kelamin',
+                    name: 'jenis_kelamin',
+                },
+				{
+                    data: 'no_hp',
+                    name: 'no_hp',
+                },
+				{
+                    data: 'alamat',
+                    name: 'alamat',
+                },
+				{
+                    data: 'department',
+                    name: 'department.id'
+                },
+				{
+                    data: 'position',
+                    name: 'position.id'
+                },
+
                 {
                     data: 'created_at',
                     name: 'created_at'

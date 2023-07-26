@@ -1,16 +1,13 @@
 @extends('layouts.app')
 
-@section('title', __('Create Positions'))
+@section('title', __('Tambah Jabatan'))
 
 @section('content')
     <div class="page-heading">
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-8 order-md-1 order-last">
-                    <h3>{{ __('Positions') }}</h3>
-                    <p class="text-subtitle text-muted">
-                        {{ __('Create a new position.') }}
-                    </p>
+                    <h3>{{ __('Jabatan') }}</h3>
                 </div>
 
                 <x-breadcrumb>
@@ -18,7 +15,7 @@
                         <a href="/">{{ __('Dashboard') }}</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="{{ route('positions.index') }}">{{ __('Positions') }}</a>
+                        <a href="{{ route('positions.index') }}">{{ __('Jabatan') }}</a>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">
                         {{ __('Create') }}

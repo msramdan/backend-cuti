@@ -1,20 +1,17 @@
 @extends('layouts.app')
 
-@section('title', __('Departments'))
+@section('title', __('Departemen'))
 
 @section('content')
     <div class="page-heading">
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-8 order-md-1 order-last">
-                    <h3>{{ __('Departments') }}</h3>
-                    <p class="text-subtitle text-muted">
-                        {{ __('Below is a list of all departments.') }}
-                    </p>
+                    <h3>{{ __('Departemen') }}</h3>
                 </div>
                 <x-breadcrumb>
                     <li class="breadcrumb-item"><a href="/">{{ __('Dashboard') }}</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ __('Departments') }}</li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ __('Departemen') }}</li>
                 </x-breadcrumb>
             </div>
         </div>
@@ -26,7 +23,7 @@
                 <div class="d-flex justify-content-end">
                     <a href="{{ route('departments.create') }}" class="btn btn-primary mb-3">
                         <i class="fas fa-plus"></i>
-                        {{ __('Create a new department') }}
+                        {{ __('Tambah Departemen') }}
                     </a>
                 </div>
                 @endcan

@@ -1,16 +1,13 @@
 @extends('layouts.app')
 
-@section('title', __('Edit Departments'))
+@section('title', __('Edit Departemen'))
 
 @section('content')
     <div class="page-heading">
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-8 order-md-1 order-last">
-                    <h3>{{ __('Departments') }}</h3>
-                    <p class="text-subtitle text-muted">
-                        {{ __('Edit a department.') }}
-                    </p>
+                    <h3>{{ __('Departemen') }}</h3>
                 </div>
 
                 <x-breadcrumb>
@@ -18,7 +15,7 @@
                         <a href="/">{{ __('Dashboard') }}</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="{{ route('departments.index') }}">{{ __('Departments') }}</a>
+                        <a href="{{ route('departments.index') }}">{{ __('Departemen') }}</a>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">
                         {{ __('Edit') }}

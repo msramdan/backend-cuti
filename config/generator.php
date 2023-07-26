@@ -110,6 +110,38 @@ return [
      */
     'sidebars' => [
         [
+            'header' => 'Pengajuans',
+            'permissions' => [
+                'pengajuan view'
+            ],
+            'menus' => [
+                [
+                    'title' => 'Daftar Pengajuan Cuti',
+                    'icon' => '<i class="bi bi-calendar-week"></i>',
+                    'route' => '/pengajuans',
+                    'permission' => 'pengajuan view',
+                    'permissions' => [],
+                    'submenus' => []
+                ]
+            ]
+        ],
+        [
+            'header' => 'Employees',
+            'permissions' => [
+                'employee view'
+            ],
+            'menus' => [
+                [
+                    'title' => 'Karyawan',
+                    'icon' => '<i class="bi bi-people"></i>',
+                    'route' => '/employees',
+                    'permission' => 'employee view',
+                    'permissions' => [],
+                    'submenus' => []
+                ]
+            ]
+        ],
+        [
             'header' => 'Main',
             'permissions' => [
                 'department view',
@@ -165,6 +197,5 @@ return [
                 ]
             ]
         ]
-
     ]
 ];
