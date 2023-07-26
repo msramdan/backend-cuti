@@ -97,15 +97,6 @@
                         @endcanany
                     @endif
                 @endforeach
-
-                @if (env('APP_ENV') === 'local')
-                    <li class="sidebar-item{{ request()->is('generators/create') ? ' active' : '' }}">
-                        <a class="sidebar-link" href="{{ route('generators.create') }}">
-                            <i class="bi bi-grid-fill"></i>
-                            <span> {{ __('CRUD Generator') }}</span>
-                        </a>
-                    </li>
-                @endif
                 <li class="sidebar-item{{ request()->is('profile') ? ' active' : '' }}">
                     <a class="sidebar-link" href="{{ route('profile') }}">
                         <i class="bi bi-person-badge-fill"></i>
