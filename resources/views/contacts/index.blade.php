@@ -31,8 +31,6 @@
 											<th>{{ __('Judul') }}</th>
 											<th>{{ __('Deskripsi') }}</th>
 											<th>{{ __('Tanggal') }}</th>
-                                            <th>{{ __('Created At') }}</th>
-                                            <th>{{ __('Updated At') }}</th>
                                             <th>{{ __('Action') }}</th>
                                         </tr>
                                     </thead>
@@ -75,14 +73,6 @@
 				{
                     data: 'tanggal',
                     name: 'tanggal',
-                },
-                {
-                    data: 'created_at',
-                    name: 'created_at'
-                },
-                {
-                    data: 'updated_at',
-                    name: 'updated_at'
                 },
                 {
                     data: 'action',

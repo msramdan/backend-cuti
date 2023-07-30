@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use App\Http\Requests\{StoreContactRequest, UpdateContactRequest};
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\DB;
 
 class ContactController extends Controller
 {
@@ -22,10 +23,13 @@ class ContactController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            $contacts = Contact::with('employee:id,nama_karyawan');
+            $contacts = DB::table('contacts')
+            ->join('employees', 'contacts.karyawan_id', '=', 'employees.id')
+            ->select('contacts.*','employees.nama_karyawan')
+            ->get();
             return DataTables::of($contacts)
                 ->addColumn('employee', function ($row) {
-                    return $row->employee ? $row->employee->nama_karyawan : '';
+                    return $row->nama_karyawan;
                 })->addColumn('action', 'contacts.include.action')
                 ->toJson();
         }
