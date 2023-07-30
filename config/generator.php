@@ -173,6 +173,22 @@ return [
             ]
         ],
         [
+            'header' => 'Contacts',
+            'permissions' => [
+                'contact view'
+            ],
+            'menus' => [
+                [
+                    'title' => 'Kontak Masukan',
+                    'icon' => '<i class="bi bi-envelope"></i>',
+                    'route' => '/contacts',
+                    'permission' => 'contact view',
+                    'permissions' => [],
+                    'submenus' => []
+                ]
+            ]
+        ],
+        [
             'header' => 'Users',
             'permissions' => [
                 'user view',
@@ -196,6 +212,7 @@ return [
                     'submenus' => []
                 ]
             ]
-        ]
+        ],
+
     ]
 ];

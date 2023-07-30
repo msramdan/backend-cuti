@@ -22,3 +22,4 @@ Route::resource('positions', App\Http\Controllers\PositionController::class)->mi
 
 Route::resource('employees', App\Http\Controllers\EmployeeController::class)->middleware('auth');
 Route::resource('pengajuans', App\Http\Controllers\PengajuanController::class)->middleware('auth');
+Route::resource('contacts', App\Http\Controllers\ContactController::class)->middleware('auth');

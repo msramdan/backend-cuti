@@ -185,5 +185,6 @@ return [
         ['group' => 'jabatan', 'access' => ['jabatan view', 'jabatan create', 'jabatan edit', 'jabatan delete']],
         ['group' => 'karyawan', 'access' => ['karyawan view', 'karyawan create', 'karyawan edit', 'karyawan delete']],
         ['group' => 'pengajuan', 'access' => ['pengajuan view',]],
+        ['group' => 'contacts', 'access' => ['contact view', 'contact delete']],
     ],
 ];
