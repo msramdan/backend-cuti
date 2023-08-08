@@ -21,7 +21,7 @@ class Employee extends Model
      *
      * @var string[]
      */
-    protected $casts = ['nik' => 'string', 'nama_karyawan' => 'string', 'tempat_lahir' => 'string', 'tanggal_lahir' => 'date:d/m/Y', 'jenis_kelamin' => 'boolean', 'no_hp' => 'string', 'alamat' => 'string', 'password' => 'string', 'created_at' => 'datetime:d/m/Y H:i', 'updated_at' => 'datetime:d/m/Y H:i'];
+    protected $casts = ['nik' => 'string', 'nama_karyawan' => 'string', 'tempat_lahir' => 'string', 'tanggal_lahir' => 'date:d/m/Y','no_hp' => 'string', 'alamat' => 'string', 'password' => 'string', 'created_at' => 'datetime:d/m/Y H:i', 'updated_at' => 'datetime:d/m/Y H:i'];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -29,11 +29,11 @@ class Employee extends Model
      * @var string[]
     */
     protected $hidden = ['password'];
-	
+
 	public function department()
 	{
 		return $this->belongsTo(\App\Models\Department::class);
-	}	
+	}
 	public function position()
 	{
 		return $this->belongsTo(\App\Models\Position::class);

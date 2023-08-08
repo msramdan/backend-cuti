@@ -28,7 +28,7 @@ class UpdateEmployeeRequest extends FormRequest
 			'nama_karyawan' => 'required|string|min:5|max:255',
 			'tempat_lahir' => 'required|string|min:5|max:255',
 			'tanggal_lahir' => 'required|date',
-			'jenis_kelamin' => 'required|boolean',
+			'jenis_kelamin' => 'required',
 			'no_hp' => 'required|string|min:10|max:15',
 			'alamat' => 'required|string',
 			'departemen_id' => 'required|exists:App\Models\Department,id',

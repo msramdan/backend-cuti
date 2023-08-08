@@ -21,7 +21,7 @@ class Pengajuan extends Model
      *
      * @var string[]
      */
-    protected $casts = ['jenis_cuti' => 'boolean', 'tanggal_akhir' => 'date:d/m/Y', 'tanggal_awal' => 'date:d/m/Y', 'alasan' => 'string', 'file' => 'string', 'tanggal_pengajuan' => 'datetime:d/m/Y H:i', 'status_pengajuan' => 'boolean', 'created_at' => 'datetime:d/m/Y H:i', 'updated_at' => 'datetime:d/m/Y H:i'];
+    protected $casts = ['tanggal_akhir' => 'date:d/m/Y', 'tanggal_awal' => 'date:d/m/Y', 'alasan' => 'string', 'file' => 'string', 'tanggal_pengajuan' => 'datetime:d/m/Y H:i','created_at' => 'datetime:d/m/Y H:i', 'updated_at' => 'datetime:d/m/Y H:i'];
 
 
 

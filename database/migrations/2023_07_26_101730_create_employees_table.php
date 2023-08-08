@@ -19,7 +19,7 @@ return new class extends Migration
 			$table->string('nama_karyawan', 255);
 			$table->string('tempat_lahir', 255);
 			$table->date('tanggal_lahir');
-			$table->boolean('jenis_kelamin');
+			$table->string('jenis_kelamin');
 			$table->string('no_hp', 15);
 			$table->text('alamat');
 			$table->foreignId('departemen_id')->nullable()->constrained('departments')->restrictOnUpdate()->nullOnDelete();

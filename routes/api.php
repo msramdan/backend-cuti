@@ -1,9 +1,13 @@
 <?php
 
+use App\Http\Controllers\API\FormPengajuanController;
 use App\Http\Controllers\API\KontakController;
+use App\Http\Controllers\API\StatusPengajuanController;
 use App\Http\Controllers\API\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +25,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('login', [UserController::class, 'login']);
+Route::get('getListPengajuan', [StatusPengajuanController::class, 'getListPengajuan']);
 Route::post('store', [KontakController::class, 'store']);
+Route::post('formPengajuan', [FormPengajuanController::class, 'store']);
 Route::post('updateProfile', [UserController::class, 'updateProfile']);
 Route::post('changePassword', [UserController::class, 'changePassword']);

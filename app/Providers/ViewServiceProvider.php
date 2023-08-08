@@ -31,35 +31,34 @@ class ViewServiceProvider extends ServiceProvider
                 Role::select('id', 'name')->get()
             );
         });
-  
 
-				View::composer(['employees.create', 'employees.edit'], function ($view) {
+
+        View::composer(['employees.create', 'employees.edit'], function ($view) {
             return $view->with(
                 'departments',
-                \App\Models\Department::select('id', 'id')->get()
+                \App\Models\Department::select('id', 'nama_departemen')->get()
             );
         });
 
-		View::composer(['employees.create', 'employees.edit'], function ($view) {
+        View::composer(['employees.create', 'employees.edit'], function ($view) {
             return $view->with(
                 'positions',
-                \App\Models\Position::select('id', 'id')->get()
+                \App\Models\Position::select('id', 'nama_jabatan')->get()
             );
         });
 
-		View::composer(['pengajuans.create', 'pengajuans.edit'], function ($view) {
+        View::composer(['pengajuans.create', 'pengajuans.edit'], function ($view) {
             return $view->with(
                 'employees',
                 \App\Models\Employee::select('id', 'created_at')->get()
             );
         });
 
-		View::composer(['pengajuans.create', 'pengajuans.edit'], function ($view) {
+        View::composer(['pengajuans.create', 'pengajuans.edit'], function ($view) {
             return $view->with(
                 'users',
                 \App\Models\User::select('id', 'created_at')->get()
             );
         });
-
-	}
+    }
 }

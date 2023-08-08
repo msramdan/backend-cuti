@@ -16,13 +16,13 @@ return new class extends Migration
         Schema::create('pengajuans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('karyawan_id')->constrained('employees')->restrictOnUpdate()->cascadeOnDelete();
-			$table->boolean('jenis_cuti');
+			$table->string('jenis_cuti');
 			$table->date('tanggal_akhir');
 			$table->date('tanggal_awal');
 			$table->text('alasan');
 			$table->string('file');
 			$table->dateTime('tanggal_pengajuan');
-			$table->boolean('status_pengajuan');
+			$table->string('status_pengajuan');
 			$table->foreignId('user_id')->nullable()->constrained('users')->restrictOnUpdate()->nullOnDelete();
             $table->timestamps();
         });
