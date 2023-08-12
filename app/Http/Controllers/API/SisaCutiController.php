@@ -15,21 +15,21 @@ use Illuminate\Support\Facades\DB;
 
 class SisaCutiController extends Controller
 {
-    public function getSisaCuti(Request $request)
+    public function sisaCuti(Request $request)
     {
-        $count = 5;
-        if ($count) {
-            return response()->json([
-                'success' => true,
-                'message' => 'Get data sisa cuti berhasil',
-                'data' => $count,
-            ], 200);
+        $tahun = date('Y');
+        $getTotal = DB::select("SELECT * FROM daftar_cuti WHERE jenis_cuti='Cuti Tahunan' AND karyawan_id='$request->id' AND YEAR(tanggal)='$tahun'");
+
+        if ($getTotal) {
+            $jml = count($getTotal);
         } else {
-            return response()->json([
-                'success' => false,
-                'message' => 'Get data sisa cuti error',
-                'data' => 0,
-            ], 401);
+            $jml = 0;
         }
+        $sisa = 12 - $jml;
+        return response()->json([
+            'success' => true,
+            'message' => 'Get data sisa cuti berhasil',
+            'data' => $sisa,
+        ], 200);
     }
 }

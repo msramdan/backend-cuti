@@ -22,6 +22,7 @@ class PengajuanController extends Controller
                 ->join('employees', 'pengajuans.karyawan_id', '=', 'employees.id')
                 ->leftJoin('users', 'pengajuans.user_id', '=', 'users.id')
                 ->select('pengajuans.*', 'employees.nama_karyawan', 'users.name')
+                ->orderBy('pengajuans.id', 'desc')
                 ->get();
 
             return Datatables::of($pengajuans)

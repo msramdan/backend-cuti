@@ -45,9 +45,6 @@
 											<th>{{ __('Alamat') }}</th>
 											<th>{{ __('Department') }}</th>
 											<th>{{ __('Position') }}</th>
-
-                                            <th>{{ __('Created At') }}</th>
-                                            <th>{{ __('Updated At') }}</th>
                                             <th>{{ __('Action') }}</th>
                                         </tr>
                                     </thead>
@@ -110,15 +107,6 @@
 				{
                     data: 'position',
                     name: 'position.id'
-                },
-
-                {
-                    data: 'created_at',
-                    name: 'created_at'
-                },
-                {
-                    data: 'updated_at',
-                    name: 'updated_at'
                 },
                 {
                     data: 'action',
