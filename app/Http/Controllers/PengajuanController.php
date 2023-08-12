@@ -57,10 +57,38 @@ class PengajuanController extends Controller
     public function updateStatus(Request $request)
     {
         $pengajuan = Pengajuan::findOrFail($request->id);
-        if ($request->status_pengajuan =='Approved') {
-
+        if ($request->status_pengajuan == 'Approved') {
+            $dates = $this->getBetweenDates($pengajuan->tanggal_awal, $pengajuan->tanggal_akhir);
+            foreach ($dates as $value) {
+                $dateName = date('l', strtotime($value));
+                if ($dateName == 'Saturday' || $dateName == 'Sunday') {
+                    // echo 'skip sabtu minggu';
+                } else {
+                    $tahun = date('Y');
+                    // if cuti tahunan cek sisa cuti
+                    if ($pengajuan->jenis_cuti == 'Cuti Tahunan') {
+                        $getTotal = DB::select("SELECT * FROM daftar_cuti WHERE jenis_cuti='Cuti Tahunan' AND karyawan_id='$pengajuan->karyawan_id' AND YEAR(tanggal)='$tahun'");
+                        if (count($getTotal) < 12) {
+                            DB::table('daftar_cuti')->insert([
+                                'karyawan_id' => $pengajuan->karyawan_id,
+                                'jenis_cuti' => $pengajuan->jenis_cuti,
+                                'tanggal' => $value,
+                                'created_at' => date('Y-m-d H:i:s'),
+                                'updated_at' => date('Y-m-d H:i:s'),
+                            ]);
+                        }
+                    } else {
+                        DB::table('daftar_cuti')->insert([
+                            'karyawan_id' => $pengajuan->karyawan_id,
+                            'jenis_cuti' => $pengajuan->jenis_cuti,
+                            'tanggal' => $value,
+                            'created_at' => date('Y-m-d H:i:s'),
+                            'updated_at' => date('Y-m-d H:i:s'),
+                        ]);
+                    }
+                }
+            }
         }
-
         $pengajuan->update([
             'catatan' => $request->catatan,
             'user_id' => auth()->user()->id,
@@ -70,5 +98,22 @@ class PengajuanController extends Controller
         return redirect()
             ->route('pengajuans.index')
             ->with('success', __('Pengajuan cuti berhasil di update'));
+    }
+
+    function getBetweenDates($startDate, $endDate)
+    {
+        $rangArray = [];
+        $startDate = strtotime($startDate);
+        $endDate = strtotime($endDate);
+        for (
+            $currentDate = $startDate;
+            $currentDate <= $endDate;
+            $currentDate += (86400)
+        ) {
+
+            $date = date('Y-m-d', $currentDate);
+            $rangArray[] = $date;
+        }
+        return $rangArray;
     }
 }

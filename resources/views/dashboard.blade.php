@@ -113,12 +113,19 @@
                         <table class="table table-bordered table-xs">
                             <thead class="thead-light">
                                 <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Faskes</th>
-                                    <th scope="col">Jumlah Laporan</th>
+                                    <th scope="col">Nik</th>
+                                    <th scope="col">Karyawan</th>
+                                    <th scope="col">Jenis Cuti</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ( $dataCuti as $row )
+                                    <tr>
+                                        <td>{{ $row->nik }}</td>
+                                        <td>{{ $row->nama_karyawan }}</td>
+                                        <td>{{ $row->jenis_cuti }}</td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
