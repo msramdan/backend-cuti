@@ -45,7 +45,7 @@
                                         </tr>
 									<tr>
                                             <td class="fw-bold">{{ __('Tanggal Lahir') }}</td>
-                                            <td>{{ isset($employee->tanggal_lahir) ? $employee->tanggal_lahir->format('d/m/Y') : ''  }}</td>
+                                            <td>{{ $employee->tanggal_lahir }}</td>
                                         </tr>
 									<tr>
                                         <td class="fw-bold">{{ __('Jenis Kelamin') }}</td>
@@ -61,20 +61,11 @@
                                         </tr>
 									<tr>
                                         <td class="fw-bold">{{ __('Department') }}</td>
-                                        <td>{{ $employee->department ? $employee->department->id : '' }}</td>
+                                        <td>{{ $employee->nama_departemen }}</td>
                                     </tr>
 									<tr>
                                         <td class="fw-bold">{{ __('Position') }}</td>
-                                        <td>{{ $employee->position ? $employee->position->id : '' }}</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="fw-bold">{{ __('Created at') }}</td>
-                                        <td>{{ $employee->created_at->format('d/m/Y H:i') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="fw-bold">{{ __('Updated at') }}</td>
-                                        <td>{{ $employee->updated_at->format('d/m/Y H:i') }}</td>
+                                        <td>{{ $employee->nama_jabatan }}</td>
                                     </tr>
                                 </table>
                             </div>

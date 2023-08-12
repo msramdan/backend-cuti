@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Employee;
 use App\Http\Requests\{StoreEmployeeRequest, UpdateEmployeeRequest};
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\DB;
 
 class EmployeeController extends Controller
 {
@@ -24,16 +25,22 @@ class EmployeeController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            $employees = Employee::with('department:id,id', 'position:id,id', );
+
+            $employees = DB::table('employees')
+                ->join('departments', 'employees.departemen_id', '=', 'departments.id')
+                ->leftJoin('positions', 'employees.jabatan_id', '=', 'positions.id')
+                ->select('employees.*', 'departments.nama_departemen', 'positions.nama_jabatan')
+                ->get();
+
 
             return DataTables::of($employees)
-                ->addColumn('alamat', function($row){
+                ->addColumn('alamat', function ($row) {
                     return str($row->alamat)->limit(100);
                 })
-				->addColumn('department', function ($row) {
-                    return $row->department ? $row->department->id : '';
+                ->addColumn('department', function ($row) {
+                    return $row->nama_departemen;
                 })->addColumn('position', function ($row) {
-                    return $row->position ? $row->position->id : '';
+                    return $row->nama_jabatan;
                 })->addColumn('action', 'employees.include.action')
                 ->toJson();
         }
@@ -60,7 +67,7 @@ class EmployeeController extends Controller
     public function store(StoreEmployeeRequest $request)
     {
         $attr = $request->validated();
-		$attr['password'] = bcrypt($request->password);
+        $attr['password'] = bcrypt($request->password);
 
         Employee::create($attr);
 
@@ -77,9 +84,13 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee)
     {
-        $employee->load('department:id,id', 'position:id,id', );
+        $employee = DB::table('employees')
+            ->join('departments', 'employees.departemen_id', '=', 'departments.id')
+            ->leftJoin('positions', 'employees.jabatan_id', '=', 'positions.id')
+            ->select('employees.*', 'departments.nama_departemen', 'positions.nama_jabatan')
+            ->first();
 
-		return view('employees.show', compact('employee'));
+        return view('employees.show', compact('employee'));
     }
 
     /**
@@ -90,9 +101,9 @@ class EmployeeController extends Controller
      */
     public function edit(Employee $employee)
     {
-        $employee->load('department:id,id', 'position:id,id', );
+        $employee->load('department:id,id', 'position:id,id',);
 
-		return view('employees.edit', compact('employee'));
+        return view('employees.edit', compact('employee'));
     }
 
     /**
