@@ -15,7 +15,7 @@
                         <label for="exampleFormControlTextarea1">Catatan</label>
                         <input type="hidden" name="id" id="id" value="{{ $model->id }}">
                         <input type="hidden" name="status_pengajuan" id="status_pengajuan" value="Approved">
-                        <textarea class="form-control" id="catatan" name="catatan" rows="3" required></textarea>
+                        <textarea class="form-control" id="catatan" name="catatan" rows="3" required>{{ $model->catatan }}</textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -46,7 +46,7 @@
                         <label for="exampleFormControlTextarea1">Catatan</label>
                         <input type="hidden" name="id" id="id" value="{{ $model->id }}">
                         <input type="hidden" name="status_pengajuan" id="status_pengajuan" value="Rejected">
-                        <textarea class="form-control" id="catatan" name="catatan" rows="3" required></textarea>
+                        <textarea class="form-control" id="catatan" name="catatan" rows="3" required>{{ $model->catatan }}</textarea>
                     </div>
 
                 </div>

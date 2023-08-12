@@ -14,7 +14,7 @@ class Pengajuan extends Model
      *
      * @var string[]
      */
-    protected $fillable = ['karyawan_id', 'jenis_cuti', 'tanggal_akhir', 'tanggal_awal', 'alasan', 'file', 'tanggal_pengajuan', 'status_pengajuan', 'user_id'];
+    protected $fillable = ['karyawan_id', 'jenis_cuti', 'tanggal_akhir', 'tanggal_awal', 'alasan', 'file', 'tanggal_pengajuan', 'status_pengajuan', 'user_id','catatan'];
 
     /**
      * The attributes that should be cast.

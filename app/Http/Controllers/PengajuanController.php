@@ -56,10 +56,14 @@ class PengajuanController extends Controller
 
     public function updateStatus(Request $request)
     {
-        $laporan = Pengajuan::findOrFail($request->id);
-        $laporan->update([
+        $pengajuan = Pengajuan::findOrFail($request->id);
+        if ($request->status_pengajuan =='Approved') {
+
+        }
+
+        $pengajuan->update([
             'catatan' => $request->catatan,
-            'user_review' => auth()->user()->id,
+            'user_id' => auth()->user()->id,
             'updated_at' => date('Y-m-d H:i:s'),
             'status_pengajuan' => $request->status_pengajuan,
         ]);
