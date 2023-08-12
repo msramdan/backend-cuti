@@ -29,15 +29,15 @@
                                         <tr>
                                             <th>{{ __('Karyawan') }}</th>
                                             <th>{{ __('Jenis Cuti') }}</th>
-                                            <th>{{ __('Tanggal Akhir') }}</th>
                                             <th>{{ __('Tanggal Awal') }}</th>
+                                            <th>{{ __('Tanggal Akhir') }}</th>
                                             <th>{{ __('Alasan') }}</th>
                                             <th>{{ __('File') }}</th>
                                             <th>{{ __('Tanggal Pengajuan') }}</th>
                                             <th>{{ __('Status Pengajuan') }}</th>
                                             <th>{{ __('Review By') }}</th>
-                                            <th>{{ __('Created At') }}</th>
-                                            <th>{{ __('Updated At') }}</th>
+                                            {{-- <th>{{ __('Created At') }}</th>
+                                            <th>{{ __('Updated At') }}</th> --}}
                                             <th>{{ __('Action') }}</th>
                                         </tr>
                                     </thead>
@@ -77,13 +77,14 @@
                     name: 'jenis_cuti',
                 },
                 {
-                    data: 'tanggal_akhir',
-                    name: 'tanggal_akhir',
-                },
-                {
                     data: 'tanggal_awal',
                     name: 'tanggal_awal',
                 },
+                {
+                    data: 'tanggal_akhir',
+                    name: 'tanggal_akhir',
+                },
+
                 {
                     data: 'alasan',
                     name: 'alasan',
@@ -111,14 +112,14 @@
                     data: 'user',
                     name: 'user.created_at'
                 },
-                {
-                    data: 'created_at',
-                    name: 'created_at'
-                },
-                {
-                    data: 'updated_at',
-                    name: 'updated_at'
-                },
+                // {
+                //     data: 'created_at',
+                //     name: 'created_at'
+                // },
+                // {
+                //     data: 'updated_at',
+                //     name: 'updated_at'
+                // },
                 {
                     data: 'action',
                     name: 'action',

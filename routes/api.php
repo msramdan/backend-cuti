@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\FormPengajuanController;
 use App\Http\Controllers\API\KontakController;
+use App\Http\Controllers\API\SisaCutiController;
 use App\Http\Controllers\API\StatusPengajuanController;
 use App\Http\Controllers\API\UserController;
 use Illuminate\Http\Request;
@@ -30,3 +31,4 @@ Route::post('store', [KontakController::class, 'store']);
 Route::post('formPengajuan', [FormPengajuanController::class, 'store']);
 Route::post('updateProfile', [UserController::class, 'updateProfile']);
 Route::post('changePassword', [UserController::class, 'changePassword']);
+Route::get('getSisaCuti', [SisaCutiController::class, 'getSisaCuti']);

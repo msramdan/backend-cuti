@@ -24,6 +24,7 @@ return new class extends Migration
 			$table->dateTime('tanggal_pengajuan');
 			$table->string('status_pengajuan');
 			$table->foreignId('user_id')->nullable()->constrained('users')->restrictOnUpdate()->nullOnDelete();
+            $table->string('catatan')->nullable();
             $table->timestamps();
         });
     }
