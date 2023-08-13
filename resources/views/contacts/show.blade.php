@@ -38,25 +38,18 @@
                                         <td class="fw-bold">{{ __('Employee') }}</td>
                                         <td>{{ $contact->employee ? $contact->employee->nik : '' }}</td>
                                     </tr>
-									<tr>
-                                            <td class="fw-bold">{{ __('Judul') }}</td>
-                                            <td>{{ $contact->judul }}</td>
-                                        </tr>
-									<tr>
-                                            <td class="fw-bold">{{ __('Deskripsi') }}</td>
-                                            <td>{{ $contact->deskripsi }}</td>
-                                        </tr>
-									<tr>
-                                            <td class="fw-bold">{{ __('Tanggal') }}</td>
-                                            <td>{{ isset($contact->tanggal) ? $contact->tanggal->format('d/m/Y H:i') : ''  }}</td>
-                                        </tr>
                                     <tr>
-                                        <td class="fw-bold">{{ __('Created at') }}</td>
-                                        <td>{{ $contact->created_at->format('d/m/Y H:i') }}</td>
+                                        <td class="fw-bold">{{ __('Judul') }}</td>
+                                        <td>{{ $contact->judul }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="fw-bold">{{ __('Updated at') }}</td>
-                                        <td>{{ $contact->updated_at->format('d/m/Y H:i') }}</td>
+                                        <td class="fw-bold">{{ __('Deskripsi') }}</td>
+                                        <td>{{ $contact->deskripsi }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">{{ __('Tanggal') }}</td>
+                                        <td>{{ isset($contact->tanggal) ? $contact->tanggal->format('d/m/Y H:i') : '' }}
+                                        </td>
                                     </tr>
                                 </table>
                             </div>
