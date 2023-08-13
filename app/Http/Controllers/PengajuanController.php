@@ -36,12 +36,13 @@ class PengajuanController extends Controller
                 })
                 ->addColumn('file', function ($row) {
                     if ($row->file == null) {
-                        return 'https://via.placeholder.com/350?text=No+Image+Avaiable';
+                        return '<a href="">-</a>';
                     }
-                    return asset('storage/uploads/files/' . $row->file);
+                    return '<a href="'.asset('storage/' . $row->file).'" target="_blank">View</a>';
                 })
 
                 ->addColumn('action', 'pengajuans.include.action')
+                ->rawColumns(['file', 'action'])
                 ->toJson();
         }
 
