@@ -26,7 +26,7 @@ Cuti
 
         <section class="section">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <div class="card">
                         <div class="card-body">
                             <div class="table-responsive">
@@ -37,7 +37,7 @@ Cuti
                                     </tr>
 									<tr>
                                         <td class="fw-bold">{{ __('Jenis Cuti') }}</td>
-                                        <td>{{ $pengajuan->jenis_cuti == 1 ? 'True' : 'False' }}</td>
+                                        <td>{{ $pengajuan->jenis_cuti }}</td>
                                     </tr>
 									<tr>
                                             <td class="fw-bold">{{ __('Tanggal Akhir') }}</td>
@@ -67,19 +67,11 @@ Cuti
                                         </tr>
 									<tr>
                                         <td class="fw-bold">{{ __('Status Pengajuan') }}</td>
-                                        <td>{{ $pengajuan->status_pengajuan == 1 ? 'True' : 'False' }}</td>
+                                        <td>{{ $pengajuan->status_pengajuan }}</td>
                                     </tr>
 									<tr>
                                         <td class="fw-bold">{{ __('User') }}</td>
                                         <td>{{ $pengajuan->user ? $pengajuan->user->created_at : '' }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="fw-bold">{{ __('Created at') }}</td>
-                                        <td>{{ $pengajuan->created_at->format('d/m/Y H:i') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="fw-bold">{{ __('Updated at') }}</td>
-                                        <td>{{ $pengajuan->updated_at->format('d/m/Y H:i') }}</td>
                                     </tr>
                                 </table>
                             </div>

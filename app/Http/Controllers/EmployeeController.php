@@ -41,6 +41,9 @@ class EmployeeController extends Controller
                     return $row->nama_departemen;
                 })->addColumn('position', function ($row) {
                     return $row->nama_jabatan;
+                })
+                ->addColumn('sisa', function ($row) {
+                    return sisaCuti($row->id) . ' Hari';
                 })->addColumn('action', 'employees.include.action')
                 ->toJson();
         }
@@ -84,12 +87,43 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee)
     {
+
+        if (request()->ajax()) {
+            $pengajuans = DB::table('pengajuans')
+                ->join('employees', 'pengajuans.karyawan_id', '=', 'employees.id')
+                ->leftJoin('users', 'pengajuans.user_id', '=', 'users.id')
+                ->where('pengajuans.karyawan_id', '=', $employee->id)
+                ->select('pengajuans.*', 'employees.nama_karyawan', 'users.name')
+                ->orderBy('pengajuans.id', 'desc')
+                ->get();
+
+            return Datatables::of($pengajuans)
+                ->addColumn('alasan', function ($row) {
+                    return str($row->alasan)->limit(100);
+                })
+                ->addColumn('employee', function ($row) {
+                    return $row->nama_karyawan;
+                })->addColumn('user', function ($row) {
+                    return $row->name;
+                })
+                ->addColumn('file', function ($row) {
+                    if ($row->file == null) {
+                        return '<a href="">-</a>';
+                    }
+                    return '<a href="' . asset('storage/' . $row->file) . '" target="_blank">View</a>';
+                })
+
+                ->addColumn('action', 'pengajuans.include.action')
+                ->rawColumns(['file', 'action'])
+                ->toJson();
+        }
+
         $employee = DB::table('employees')
             ->join('departments', 'employees.departemen_id', '=', 'departments.id')
             ->leftJoin('positions', 'employees.jabatan_id', '=', 'positions.id')
+            ->where('employees.id', '=', $employee->id)
             ->select('employees.*', 'departments.nama_departemen', 'positions.nama_jabatan')
             ->first();
-
         return view('employees.show', compact('employee'));
     }
 

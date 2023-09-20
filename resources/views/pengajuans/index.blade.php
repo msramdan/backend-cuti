@@ -3,6 +3,10 @@
 @section('title', __('Daftar Pengajuan Cuti'))
 
 @section('content')
+
+
+
+
     <div class="page-heading">
         <div class="page-title">
             <div class="row">
@@ -18,7 +22,6 @@
 
         <section class="section">
             <x-alert></x-alert>
-
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
@@ -36,8 +39,6 @@
                                             <th>{{ __('Tanggal Pengajuan') }}</th>
                                             <th>{{ __('Status Pengajuan') }}</th>
                                             <th>{{ __('Review By') }}</th>
-                                            {{-- <th>{{ __('Created At') }}</th>
-                                            <th>{{ __('Updated At') }}</th> --}}
                                             <th>{{ __('Action') }}</th>
                                         </tr>
                                     </thead>
@@ -107,14 +108,6 @@
                     data: 'user',
                     name: 'user.created_at'
                 },
-                // {
-                //     data: 'created_at',
-                //     name: 'created_at'
-                // },
-                // {
-                //     data: 'updated_at',
-                //     name: 'updated_at'
-                // },
                 {
                     data: 'action',
                     name: 'action',

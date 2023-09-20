@@ -38,13 +38,10 @@
                                         <tr>
                                             <th>{{ __('Nik') }}</th>
 											<th>{{ __('Nama Karyawan') }}</th>
-											<th>{{ __('Tempat Lahir') }}</th>
-											<th>{{ __('Tanggal Lahir') }}</th>
-											<th>{{ __('Jenis Kelamin') }}</th>
 											<th>{{ __('No Hp') }}</th>
-											<th>{{ __('Alamat') }}</th>
 											<th>{{ __('Department') }}</th>
 											<th>{{ __('Position') }}</th>
+                                            <th>{{ __('Sisa Cuti Tahunan') }}</th>
                                             <th>{{ __('Action') }}</th>
                                         </tr>
                                     </thead>
@@ -81,24 +78,8 @@
                     name: 'nama_karyawan',
                 },
 				{
-                    data: 'tempat_lahir',
-                    name: 'tempat_lahir',
-                },
-				{
-                    data: 'tanggal_lahir',
-                    name: 'tanggal_lahir',
-                },
-				{
-                    data: 'jenis_kelamin',
-                    name: 'jenis_kelamin',
-                },
-				{
                     data: 'no_hp',
                     name: 'no_hp',
-                },
-				{
-                    data: 'alamat',
-                    name: 'alamat',
                 },
 				{
                     data: 'department',
@@ -107,6 +88,10 @@
 				{
                     data: 'position',
                     name: 'position.id'
+                },
+                {
+                    data: 'sisa',
+                    name: 'sisa'
                 },
                 {
                     data: 'action',
